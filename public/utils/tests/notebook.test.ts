@@ -3,27 +3,30 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import * as uuidExports from 'uuid';
-import { convertMessagesToParagraphs } from '../notebook';
+import * as uuidExports from "uuid";
+import { convertMessagesToParagraphs } from "../notebook";
 
-jest.mock('uuid', () => ({
-  ...jest.requireActual('uuid'),
+jest.mock("uuid", () => ({
+  ...jest.requireActual("uuid"),
   __esModule: true,
 }));
 
-describe('notebook convertMessagesToParagraphs utils', () => {
+describe("notebook convertMessagesToParagraphs utils", () => {
   beforeAll(() => {
     jest.useFakeTimers();
     jest.setSystemTime(new Date(2023, 11, 26));
-    jest.spyOn(uuidExports, 'v4').mockReturnValue('a-fixed-uuid');
+    jest.spyOn(uuidExports, "v4").mockReturnValue("a-fixed-uuid");
   });
   afterAll(() => {
     jest.useRealTimers();
-    jest.spyOn(uuidExports, 'v4').mockRestore();
+    jest.spyOn(uuidExports, "v4").mockRestore();
   });
-  it('should return consistent paragraphs if contentType is text', () => {
+  it("should return consistent paragraphs if contentType is text", () => {
     expect(
-      convertMessagesToParagraphs([{ type: 'input', contentType: 'text', content: 'bar' }], 'foo')
+      convertMessagesToParagraphs(
+        [{ type: "input", contentType: "text", content: "bar" }],
+        "foo"
+      )
     ).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -47,11 +50,11 @@ describe('notebook convertMessagesToParagraphs utils', () => {
     `);
   });
 
-  it('should return consistent paragraphs if contentType is markdown', () => {
+  it("should return consistent paragraphs if contentType is markdown", () => {
     expect(
       convertMessagesToParagraphs(
-        [{ type: 'output', contentType: 'markdown', content: 'bar' }],
-        'foo'
+        [{ type: "output", contentType: "markdown", content: "bar" }],
+        "foo"
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -61,14 +64,14 @@ describe('notebook convertMessagesToParagraphs utils', () => {
           "id": "paragraph_a-fixed-uuid",
           "input": Object {
             "inputText": "%md
-      OpenSearch Assistant: bar",
+      OpenArmor Assistant: bar",
             "inputType": "MARKDOWN",
           },
           "output": Array [
             Object {
               "execution_time": "0 ms",
               "outputType": "MARKDOWN",
-              "result": "OpenSearch Assistant: bar",
+              "result": "OpenArmor Assistant: bar",
             },
           ],
         },
@@ -76,9 +79,12 @@ describe('notebook convertMessagesToParagraphs utils', () => {
     `);
   });
 
-  it('should return consistent paragraphs if contentType is error', () => {
+  it("should return consistent paragraphs if contentType is error", () => {
     expect(
-      convertMessagesToParagraphs([{ type: 'output', contentType: 'error', content: 'bar' }], 'foo')
+      convertMessagesToParagraphs(
+        [{ type: "output", contentType: "error", content: "bar" }],
+        "foo"
+      )
     ).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -87,14 +93,14 @@ describe('notebook convertMessagesToParagraphs utils', () => {
           "id": "paragraph_a-fixed-uuid",
           "input": Object {
             "inputText": "%md
-      OpenSearch Assistant: bar",
+      OpenArmor Assistant: bar",
             "inputType": "MARKDOWN",
           },
           "output": Array [
             Object {
               "execution_time": "0 ms",
               "outputType": "MARKDOWN",
-              "result": "OpenSearch Assistant: bar",
+              "result": "OpenArmor Assistant: bar",
             },
           ],
         },
@@ -102,11 +108,11 @@ describe('notebook convertMessagesToParagraphs utils', () => {
     `);
   });
 
-  it('should return consistent paragraphs if contentType is visualization', () => {
+  it("should return consistent paragraphs if contentType is visualization", () => {
     expect(
       convertMessagesToParagraphs(
-        [{ type: 'output', contentType: 'visualization', content: 'bar' }],
-        'foo'
+        [{ type: "output", contentType: "visualization", content: "bar" }],
+        "foo"
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -130,11 +136,11 @@ describe('notebook convertMessagesToParagraphs utils', () => {
     `);
   });
 
-  it('should return consistent paragraphs if contentType is not supported', () => {
+  it("should return consistent paragraphs if contentType is not supported", () => {
     expect(
       convertMessagesToParagraphs(
-        [{ type: 'output', contentType: 'not-supported', content: 'bar' }],
-        'foo'
+        [{ type: "output", contentType: "not-supported", content: "bar" }],
+        "foo"
       )
     ).toMatchInlineSnapshot(`
       Array [

@@ -197,11 +197,11 @@ describe('<ChatWindowHeaderTitle />', () => {
     expect(renderResult.getByRole('button', { name: 'Save to notebook' })).toBeDisabled();
   });
 
-  it('should show "OpenSearch Assistant" when conversationId is undefined', async () => {
+  it('should show "OpenArmor Assistant" when conversationId is undefined', async () => {
     const { renderResult } = setup({
       conversationId: undefined,
     });
 
-    expect(renderResult.getByText('OpenSearch Assistant')).toBeInTheDocument();
+    expect(renderResult.getByText('OpenArmor Assistant')).toBeInTheDocument();
   });
 });

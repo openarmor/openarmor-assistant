@@ -9,7 +9,7 @@ import React from 'react';
 export const InviteMessage: React.FC = () => {
   // using https://mailtolinkgenerator.com/
   const mailtoLink =
-    'mailto:opensearch-assistant@amazon.com?subject=Requesting%20invite%20to%20OpenSearch%20Assistant%20Playground';
+    'mailto:openarmor-assistant@theopenarmor.org?subject=Requesting%20invite%20to%20OpenSearch%20Assistant%20Playground';
 
   return (
     <EuiEmptyPrompt
@@ -21,7 +21,7 @@ export const InviteMessage: React.FC = () => {
           <p>
             To request access, please send an email to{' '}
             <EuiLink href={mailtoLink} external>
-              opensearch-assistant@amazon.com
+              opensearch-assistant@theopenarmor.org
             </EuiLink>
             .
           </p>

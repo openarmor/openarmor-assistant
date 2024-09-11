@@ -174,7 +174,7 @@ export const IncontextInsight = ({ children }: IncontextInsightProps) => {
     </EuiPopoverFooter>
   );
 
-  const GeneratePopoverBody: React.FC<{}> = ({}) => (
+  const GeneratePopoverBody: React.FC<{}> = ({ }) => (
     <EuiButton onClick={() => toasts.addDanger('To be implemented...')}>Generate summary</EuiButton>
   );
 
@@ -195,7 +195,7 @@ export const IncontextInsight = ({ children }: IncontextInsightProps) => {
     </>
   );
 
-  const ChatPopoverBody: React.FC<{}> = ({}) => (
+  const ChatPopoverBody: React.FC<{}> = ({ }) => (
     <EuiFlexGroup>
       <EuiFlexItem grow={6}>
         <EuiFormRow>
@@ -286,7 +286,7 @@ export const IncontextInsight = ({ children }: IncontextInsightProps) => {
               <div>
                 <EuiBadge color="hollow" iconType={chatIcon} iconSide="left">
                   {i18n.translate('assistantDashboards.incontextInsight.assistant', {
-                    defaultMessage: 'OpenSearch Assistant',
+                    defaultMessage: 'OpenArmor Assistant',
                   })}
                 </EuiBadge>
               </div>

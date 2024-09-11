@@ -12,7 +12,7 @@ import { TabId } from '../../types';
 import { SIDECAR_DOCKED_MODE } from '../../../../../src/core/public';
 
 jest.mock('../../components/chat_window_header_title', () => {
-  return { ChatWindowHeaderTitle: () => <div>OpenSearch Assistant</div> };
+  return { ChatWindowHeaderTitle: () => <div>OpenArmor Assistant</div> };
 });
 
 const setup = ({ selectedTabId }: { selectedTabId?: TabId } = {}) => {
@@ -40,7 +40,7 @@ describe('<ChatWindowHeader />', () => {
   it('should render title, history, setSidecarMode and close button', () => {
     const { renderResult } = setup();
 
-    expect(renderResult.getByText('OpenSearch Assistant')).toBeInTheDocument();
+    expect(renderResult.getByText('OpenArmor Assistant')).toBeInTheDocument();
     expect(renderResult.getByLabelText('history')).toBeInTheDocument();
     expect(renderResult.getByLabelText('setSidecarMode')).toBeInTheDocument();
     expect(renderResult.getByLabelText('close')).toBeInTheDocument();
