@@ -1,0 +1,24 @@
+{
+  "id": "assistantDashboards",
+  "version": "2.16.0.0",
+  "opensearchDashboardsVersion": "2.16.0",
+  "server": true,
+  "ui": true,
+  "requiredPlugins": [
+    "data",
+    "dashboard",
+    "embeddable",
+    "opensearchDashboardsReact",
+    "opensearchDashboardsUtils",
+    "visualizations",
+    "savedObjects"
+  ],
+  "optionalPlugins": [
+    "dataSource",
+    "dataSourceManagement"
+  ],
+  "requiredBundles": [],
+  "configPath": [
+    "assistant"
+  ]
+}
